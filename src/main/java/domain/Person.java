@@ -10,14 +10,14 @@ import java.io.Serializable;
 @Entity
 public class Person implements Serializable
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Serial
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer id;
     public String name;
     public String email;
-    public Integer id;
 
     public Person(){}
 

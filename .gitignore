@@ -31,3 +31,22 @@ build/
 
 ### VS Code ###
 .vscode/
+ContainerConfig/docker-compose.yml
+ContainerConfig/ContainerConfig/undo_*
+ContainerConfig/ContainerConfig/server-key.pem
+ContainerConfig/ContainerConfig/server-cert.pem
+ContainerConfig/ContainerConfig/public_key.pem
+ContainerConfig/ContainerConfig/binlog.*
+ContainerConfig/ContainerConfig/\#ib_16384_0.dblwr
+ContainerConfig/ContainerConfig/\#ib_16384_1.dblwr
+ContainerConfig/ContainerConfig/auto.cnf
+ContainerConfig/ContainerConfig/ca-key.pem
+ContainerConfig/ContainerConfig/ca.pem
+ContainerConfig/ContainerConfig/client-cert.pem
+ContainerConfig/ContainerConfig/client-key.pem
+ContainerConfig/ContainerConfig/ib_buffer_pool
+ContainerConfig/ContainerConfig/ibdata1
+ContainerConfig/ContainerConfig/ibtmp1
+ContainerConfig/ContainerConfig/mysql.ibd
+ContainerConfig/ContainerConfig/mysql.sock
+ContainerConfig/ContainerConfig/private_key.pem

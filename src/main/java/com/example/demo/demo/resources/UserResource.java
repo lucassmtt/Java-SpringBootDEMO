@@ -1,6 +1,6 @@
-package com.resources;
+package com.example.demo.demo.resources;
 
-import com.entities.User;
+import com.example.demo.demo.entities.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

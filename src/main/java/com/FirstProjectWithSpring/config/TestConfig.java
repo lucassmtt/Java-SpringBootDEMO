@@ -1,12 +1,12 @@
-package com.example.demo.demo.config;
+package com.FirstProjectWithSpring.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.example.demo.demo.repositories.UserRepository;
-import com.example.demo.demo.entities.User;
+import com.FirstProjectWithSpring.repositories.UserRepository;
+import com.FirstProjectWithSpring.entities.User;
 
 import java.util.Arrays;
 

@@ -1,6 +1,6 @@
-package com.example.demo.demo.repositories;
+package com.FirstProjectWithSpring.repositories;
 
-import com.example.demo.demo.entities.User;
+import com.FirstProjectWithSpring.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

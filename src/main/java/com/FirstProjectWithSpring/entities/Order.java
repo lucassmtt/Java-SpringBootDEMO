@@ -1,5 +1,6 @@
 package com.FirstProjectWithSpring.entities;
 
+import com.FirstProjectWithSpring.entities.enums.OrderStatus;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -14,17 +15,18 @@ public class Order implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private Instant moment;
-
+    private Integer orderStatus;
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
 
     public Order(){}
 
-    public Order(Long id, Instant moment, User client) {
+    public Order(Long id, Instant moment, User client, OrderStatus orderStatus) {
         Id = id;
         this.moment = moment;
         this.client = client;
+        setOrderStatus(orderStatus);
     }
 
     public Long getId() {
@@ -41,6 +43,16 @@ public class Order implements Serializable
 
     public void setMoment(Instant moment) {
         this.moment = moment;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return OrderStatus.valueOf(orderStatus);
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        if (orderStatus != null){
+            this.orderStatus = orderStatus.getCode();
+        }
     }
 
     public User getClient() {

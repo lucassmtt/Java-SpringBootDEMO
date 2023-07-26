@@ -1,6 +1,7 @@
 package com.FirstProjectWithSpring.config;
 
 import com.FirstProjectWithSpring.entities.Order;
+import com.FirstProjectWithSpring.entities.enums.OrderStatus;
 import com.FirstProjectWithSpring.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -30,12 +31,12 @@ public class TestConfig implements CommandLineRunner
 
         userRepository.saveAll(Arrays.asList(user01, user02));
 
-        Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), user01);
-        Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), user02);
-        Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), user01);
-        Order o4 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), user02);
-        Order o5 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), user02);
-        Order o6 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), user01);
+        Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), user01, OrderStatus.PAID);
+        Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), user02, OrderStatus.CANCELED);
+        Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), user01, OrderStatus.DELIVERED);
+        Order o4 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), user02, OrderStatus.WAITING_PAYMENT);
+        Order o5 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), user02, OrderStatus.SHIPPED);
+        Order o6 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), user01, OrderStatus.SHIPPED);
 
         orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4, o5, o6));
 

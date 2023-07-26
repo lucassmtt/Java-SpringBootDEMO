@@ -28,11 +28,8 @@ public class UserResource
     }
 
     @GetMapping(value = "/{Id}")
-    public ResponseEntity<User> findById(@PathVariable  Long Id) {
+    public ResponseEntity<User> findById(@PathVariable Long Id) {
         User user = service.findById(Id);
-
         return ResponseEntity.ok().body(user);
     }
 }
-
-

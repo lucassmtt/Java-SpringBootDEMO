@@ -1,6 +1,7 @@
 package com.FirstProjectWithSpring.entities;
 
 import com.FirstProjectWithSpring.entities.pk.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -9,26 +10,27 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tb_order_item")
-public class OrderITem implements Serializable {
+public class OrderItem implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private OrderItemPK id;
+    private OrderItemPK id = new OrderItemPK();
     private Integer quantity;
     private Double price;
 
-    public OrderITem() {
+    public OrderItem() {
     }
 
-    public OrderITem(Order order, Product product, Integer quantity, Double price) {
+    public OrderItem(Order order, Product product, Integer quantity, Double price) {
         id.setProduct(product);
         id.setOrder(order);
         this.quantity = quantity;
         this.price = price;
     }
 
+    @JsonIgnore
     public Order getOrder() {
         return id.getOrder();
     }
@@ -66,9 +68,9 @@ public class OrderITem implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderITem orderITem = (OrderITem) o;
+        OrderItem OrderItem = (OrderItem) o;
 
-        return Objects.equals(id, orderITem.id);
+        return Objects.equals(id, OrderItem.id);
     }
 
     @Override

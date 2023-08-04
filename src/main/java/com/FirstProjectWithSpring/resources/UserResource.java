@@ -2,6 +2,7 @@ package com.FirstProjectWithSpring.resources;
 
 import com.FirstProjectWithSpring.entities.User;
 import com.FirstProjectWithSpring.services.UserService;
+import com.FirstProjectWithSpring.services.exceptions.ResourceNotFoundException;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class UserResource
     }
 
     @GetMapping(value = "/{Id}")
-    public ResponseEntity<User> findById(@PathVariable Long Id) {
+    public ResponseEntity<User> findById(@PathVariable Long Id) throws ResourceNotFoundException {
         User user = service.findById(Id);
         return ResponseEntity.ok().body(user);
     }

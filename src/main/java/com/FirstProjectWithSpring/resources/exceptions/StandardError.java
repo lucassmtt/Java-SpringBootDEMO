@@ -1,5 +1,7 @@
 package com.FirstProjectWithSpring.resources.exceptions;
 
+import org.springframework.http.HttpStatus;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
@@ -9,14 +11,14 @@ public class StandardError implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Instant moment;
-    private Integer statusCode;
+    private HttpStatus statusCode;
     private String error;
     private String message;
     private String path;
 
     public StandardError(){}
 
-    public StandardError(Instant moment, Integer statusCode, String error, String message, String path) {
+    public StandardError(Instant moment, HttpStatus statusCode, String error, String message, String path) {
         super();
         this.moment = moment;
         this.statusCode = statusCode;
@@ -33,11 +35,11 @@ public class StandardError implements Serializable {
         this.moment = moment;
     }
 
-    public Integer getStatusCode() {
+    public HttpStatus getStatusCode() {
         return statusCode;
     }
 
-    public void setStatusCode(Integer statusCode) {
+    public void setStatusCode(HttpStatus statusCode) {
         this.statusCode = statusCode;
     }
 

@@ -19,7 +19,7 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User findById(Long Id){
+    public User findById(Long Id) throws ResourceNotFoundException {
         Optional<User> obj = repository.findById(Id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(Id));
     }

@@ -1,5 +1,6 @@
 package com.FirstProjectWithSpring.resources.exceptions;
 
+import com.FirstProjectWithSpring.services.exceptions.DatabaseException;
 import com.FirstProjectWithSpring.services.exceptions.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -20,5 +21,13 @@ public class ResourceExceptionHandler extends ResponseEntityExceptionHandler {
         HttpStatus status = HttpStatus.NOT_FOUND;
         StandardError customError = new StandardError(Instant.now(), status, error, exception.getMessage(), request.getRequestURI());
         return ResponseEntity.status(status).body(customError);
+    }
+
+    @ExceptionHandler(DatabaseException.class)
+    public ResponseEntity<StandardError> resourceCantDelete(DatabaseException exception, HttpServletRequest request) {
+        String error = "Resource can`t delete";
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        StandardError databaseError = new StandardError(Instant.now(), status, error, exception.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(status).body(databaseError);
     }
 }
